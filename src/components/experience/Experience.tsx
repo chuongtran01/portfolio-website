@@ -60,11 +60,11 @@ function Card({
 const data = [
   {
     id: "1",
-    timeFrame: "Jan 2023 - PRESENT",
+    timeFrame: "Jan 2024 - PRESENT",
     company: "Infodat",
     position: "Software Developer",
     description:
-      "Worked with cross-functional teams to develop dynamic and responsive user interfaces, effectively translating designs into high-quality functional web components.",
+      "Collaborated with cross-functional teams to design and implement dynamic, responsive user interfaces, and develop robust RESTful APIs to enhance feature sets and improve application performance.",
     skills: [
       {
         id: "1",
@@ -76,11 +76,11 @@ const data = [
       },
       {
         id: "3",
-        name: "HTML",
+        name: "Java",
       },
       {
         id: "4",
-        name: "CSS",
+        name: "Spring Boot",
       },
     ],
   },
@@ -90,7 +90,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer Intern",
     description:
-      "Enhanced the efficiency of internal assessment process through the development of specialized web application.",
+      "Successfully implemented over 15 new features in the company's software within the first 20 weeks of employment, significantly enhancing product functionality and user satisfaction.",
     skills: [
       {
         id: "1",
@@ -102,15 +102,11 @@ const data = [
       },
       {
         id: "3",
-        name: "HTML",
+        name: "Java",
       },
       {
         id: "4",
-        name: "CSS",
-      },
-      {
-        id: "5",
-        name: "Jest",
+        name: "Spring Boot",
       },
     ],
   },
