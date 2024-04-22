@@ -90,7 +90,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer Intern",
     description:
-      "Successfully implemented over 15 new features in the company's software within the first 20 weeks of employment, significantly enhancing product functionality and user satisfaction.",
+      "Successfully implemented 15+ new features in the company's software within the first 20 weeks of employment, significantly enhancing product functionality and user satisfaction.",
     skills: [
       {
         id: "1",
