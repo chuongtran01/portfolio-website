@@ -64,11 +64,11 @@ const data = [
     company: "Infodat",
     position: "Software Developer",
     description:
-      "Collaborated with cross-functional teams to design and implement dynamic, responsive user interfaces, and develop robust RESTful APIs to enhance feature sets and improve application performance.",
+      "Enhanced user experience, increasing unique logins by 10%, improved back-end systems with 5 new features boosting user satisfaction by 15%, and ensured seamless operation by effectively resolving system errors.",
     skills: [
       {
         id: "1",
-        name: "Angular",
+        name: "Ember.js",
       },
       {
         id: "2",
@@ -90,7 +90,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer Intern",
     description:
-      "Successfully implemented 15+ new features in the company's software within the first 20 weeks of employment, significantly enhancing product functionality and user satisfaction.",
+      "Implemented 15+ new features, improved website performance, and boosted team productivity through effective collaboration using GitLab and Azure DevOps.",
     skills: [
       {
         id: "1",
