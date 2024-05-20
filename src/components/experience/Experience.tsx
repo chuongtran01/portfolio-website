@@ -64,7 +64,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer",
     description:
-      "Enhanced user experience, increasing unique logins by 10%, improved back-end systems with 5 new features boosting user satisfaction by 15%, and ensured seamless operation by effectively resolving system errors.",
+      "Enhanced user experience, increasing unique logins, improved back-end systems with new features, boosting user satisfaction and ensured seamless operation by effectively resolving system errors.",
     skills: [
       {
         id: "1",
