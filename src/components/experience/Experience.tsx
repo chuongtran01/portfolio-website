@@ -64,7 +64,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer",
     description:
-      "Enhanced user experience, increasing unique logins, improved back-end systems with new features, boosting user satisfaction and ensured seamless operation by effectively resolving system errors.",
+      "Achieved substantial growth in practice onboardings, purchases, and user satisfaction by enhancing a web application with new features and efficient, reusable components. Improved operational efficiency and ensured system stability through optimized database schemas, API development, and thorough troubleshooting practices.",
     skills: [
       {
         id: "1",
@@ -90,7 +90,7 @@ const data = [
     company: "Infodat",
     position: "Software Developer Intern",
     description:
-      "Implemented 15+ new features, improved website performance, and boosted team productivity through effective collaboration using GitLab and Azure DevOps.",
+      "Delivered new features using Spring Boot and React within 10 weeks, while boosting code quality by raising test coverage to 80% with extensive unit and integration tests. Automated deployment to AWS EC2 through a CI/CD pipeline built with GitHub Actions.",
     skills: [
       {
         id: "1",
@@ -116,41 +116,11 @@ const data = [
     company: "University of Houston",
     position: "Teaching Assistant",
     description:
-      "Worked with professor to design and execute programming activities and assessments, and facilitated lab sessions, emphasizing practical application of data structures and algorithms in C++.",
+      "Designed and delivered a robust curriculum with 20+ hands-on programming activities, enhancing student proficiency in data structures and algorithms in C++. Led lab sessions for over 50 students, offering guidance and fostering a deep understanding of advanced programming concepts.",
     skills: [
       {
         id: "5",
         name: "C++",
-      },
-    ],
-  },
-  {
-    id: "4",
-    timeFrame: "Dec 2022 - Apr 2023",
-    company: "Mainbridge Health Partners",
-    position: "Software Engineer Intern",
-    description:
-      "Developed and expanded features, involving both front-end and back-end tasks which resulted in better user experience.",
-    skills: [
-      {
-        id: "7",
-        name: "C#",
-      },
-      {
-        id: "8",
-        name: "ASP.NET",
-      },
-      {
-        id: "9",
-        name: "Microsoft SQL Server",
-      },
-      {
-        id: "10",
-        name: "HTML",
-      },
-      {
-        id: "11",
-        name: "CSS",
       },
     ],
   },

@@ -7,8 +7,8 @@ export default function Introduction() {
   const skills = {
     languages: "C++, C#, Java, JavaScript, TypeScript, Python, HTML, CSS, SQL.",
     frameworksLibraries:
-      "Spring Boot, Angular, React, Redux, Express.js, Node.js, ASP.NET, REST API.",
-    developerTools: ": Git/GitHub, Postman, Azure, MongoDB.",
+      "Spring Boot, Angular, React, Redux, Ember.js, Express.js, Node.js, .NET, REST API.",
+    developerTools: ": Git, Postman, Azure, Docker.",
   };
 
   const openInNewTab = (url: string) => {
