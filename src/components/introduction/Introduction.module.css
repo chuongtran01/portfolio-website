@@ -3,12 +3,8 @@
   align-items: center;
   padding: calc(var(--mantine-spacing-lg) * 2);
   border-radius: var(--mantine-radius-md);
-  background-color: light-dark(
-    var(--mantine-color-white),
-    var(--mantine-color-dark-8)
-  );
-  border: rem(1px) solid
-    light-dark(var(--mantine-color-gray-3), var(--mantine-color-gray-6));
+  background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-8));
+  border: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-gray-6));
 
   @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column-reverse;
@@ -26,6 +22,8 @@
 }
 
 .body {
+  width: 100%;
+
   @media (max-width: $mantine-breakpoint-sm) {
     padding-right: 0;
     margin-top: var(--mantine-spacing-md);
@@ -41,8 +39,7 @@
 
 .connect_title_container {
   margin-top: 2rem;
-  border-top: 1px solid
-    light-dark(var(--mantine-color-black), var(--mantine-color-gray-6));
+  border-top: 1px solid light-dark(var(--mantine-color-black), var(--mantine-color-gray-6));
   display: flex;
   flex-direction: column;
 }
@@ -69,8 +66,7 @@
 
 .skills_container {
   margin-top: 2rem;
-  border-top: 1px solid
-    light-dark(var(--mantine-color-black), var(--mantine-color-gray-6));
+  border-top: 1px solid light-dark(var(--mantine-color-black), var(--mantine-color-gray-6));
 }
 
 .skills_title {
