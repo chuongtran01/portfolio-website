@@ -6,8 +6,7 @@ import { IconBrandLinkedin, IconMail } from "@tabler/icons-react";
 export default function Introduction() {
   const skills = {
     languages: "C++, C#, Java, JavaScript, TypeScript, Python, HTML, CSS, SQL.",
-    frameworksLibraries:
-      "Spring Boot, Angular, React, Redux, Ember.js, Express.js, Node.js, .NET, REST API.",
+    frameworksLibraries: "Spring Boot, Angular, React, Redux, Ember.js, Express.js, Node.js, .NET, REST API.",
     developerTools: ": Git, Postman, Azure, Docker.",
   };
 
@@ -20,10 +19,7 @@ export default function Introduction() {
     <div className={classes.wrapper}>
       <div className={classes.body}>
         <Text className={classes.introduction} fz="sm">
-          My primary focus lies in building software solutions that empower
-          users to make informed financial decisions. With a passion for
-          full-stack development, I love creating exceptional digital products
-          that elevate user experiences and drive tangible value.
+          With a passion for full-stack development, I love creating exceptional digital products that elevate user experiences and drive tangible value.
         </Text>
 
         <div className={classes.connect_title_container}>
@@ -36,9 +32,7 @@ export default function Introduction() {
               style={{ width: "1.5rem", height: "1.5rem" }}
               stroke={1.5}
               color="var(--mantine-color-blue-filled)"
-              onClick={() =>
-                openInNewTab("https://www.linkedin.com/in/chuongtran2001/")
-              }
+              onClick={() => openInNewTab("https://www.linkedin.com/in/chuongtran2001/")}
             />
             <IconMail
               className={classes.icon}
