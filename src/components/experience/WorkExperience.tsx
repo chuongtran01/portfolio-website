@@ -1,4 +1,5 @@
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 interface WorkExperienceItem {
   title: string;
@@ -49,9 +50,9 @@ export default function WorkExperience({ workExperience }: WorkExperienceProps) 
           </ul>
           <div className="flex flex-wrap gap-2 mt-3">
             {experience.techStack.map((tech) => (
-              <span key={tech} className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs">
+              <Badge key={tech} variant="outline">
                 {tech}
-              </span>
+              </Badge>
             ))}
           </div>
         </div>
