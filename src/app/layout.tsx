@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import PageTitle from "@/components/layout/PageTitle";
+import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -41,7 +42,7 @@ export default function RootLayout({
           <PageTitle />
         </div>
 
-        {children}
+        <Providers>{children}</Providers>
 
         {/* Desktop Navigation - Bottom Right */}
         <div className="hidden xl:block">

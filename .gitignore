@@ -30,9 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env: ignore all .env* except .env.local (tracked)
+# env: ignore all .env* except .env.example (tracked template)
 .env*
-!.env.local
+!.env.example
 
 # vercel
 .vercel
