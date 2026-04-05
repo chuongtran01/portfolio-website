@@ -4,6 +4,7 @@ interface EducationItem {
   degree: string;
   university: string;
   date: string;
+  gpa?: string;
 }
 
 interface EducationProps {
@@ -24,6 +25,7 @@ export default function Education({ education }: EducationProps) {
               <h3 className="text-lg font-medium text-foreground">{edu.degree}</h3>
             </div>
             <p className="text-muted-foreground font-medium">{edu.university}</p>
+            {edu.gpa && <p className="text-sm text-muted-foreground mt-1">{edu.gpa}</p>}
             <div className="flex items-center gap-2 mt-1">
               <Calendar className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm text-muted-foreground">{edu.date}</span>

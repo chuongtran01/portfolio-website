@@ -1,30 +1,30 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, FileText } from "lucide-react";
+import { personal, type SocialIconId } from "@/lib/data";
 
-const icons = [
-  {
-    name: "Github",
-    href: "https://github.com/chuongtran01",
-    icon: <FaGithub size={48} />,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/chuongtran2001/",
-    icon: <FaLinkedin size={48} />,
-  },
-];
+const socialIcons: Record<SocialIconId, ReactNode> = {
+  github: <FaGithub size={48} />,
+  linkedin: <FaLinkedin size={48} />,
+};
 
 const resumeHref =
   process.env.NEXT_PUBLIC_RESUME_URL?.trim() || "/ChuongTran_Resume.pdf";
 
 const profile = {
-  name: "Chuong Tran",
-  title: "Software Engineer",
+  name: personal.name,
+  title: personal.title,
   resume: resumeHref,
 };
+
+const socialLinks = personal.socialLinks.map((link) => ({
+  name: link.name,
+  href: link.href,
+  icon: socialIcons[link.icon],
+}));
 
 export default function HomePage() {
   const handleIconClick = (href: string) => {
@@ -53,9 +53,9 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center justify-center gap-8">
-            {icons.map((icon) => (
-              <div key={icon.name} onClick={() => handleIconClick(icon.href)} className="cursor-pointer hover:opacity-70 transition-opacity duration-200">
-                {icon.icon}
+            {socialLinks.map((link) => (
+              <div key={link.name} onClick={() => handleIconClick(link.href)} className="cursor-pointer hover:opacity-70 transition-opacity duration-200">
+                {link.icon}
               </div>
             ))}
           </div>

@@ -1,0 +1,16 @@
+{
+  "name": "Chuong Tran",
+  "title": "Software Engineer",
+  "socialLinks": [
+    {
+      "name": "Github",
+      "icon": "github",
+      "href": "https://github.com/chuongtran01"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "href": "https://www.linkedin.com/in/chuongtran2001/"
+    }
+  ]
+}

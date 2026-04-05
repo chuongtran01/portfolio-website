@@ -1,0 +1,58 @@
+{
+  "aboutStatement": "I'm a dedicated software developer with 2+ years of experience building web applications and solving complex problems. I enjoy working with modern technologies and am always eager to learn new skills.",
+  "contactInfo": {
+    "email": "chuongtran2001@gmail.com",
+    "phone": "+1 (346) 401-8929",
+    "location": "United States"
+  },
+  "skills": [
+    {
+      "name": "Skills",
+      "skills": [
+        "Java",
+        "C/C++",
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "Spring Boot",
+        "React.js",
+        "Angular",
+        "Node.js",
+        "Ember.js",
+        "HTML/CSS",
+        "REST APIs",
+        "MongoDB",
+        "MySQL",
+        "Apache Kafka",
+        "AWS EC2",
+        "Selenium",
+        "Docker",
+        "Git"
+      ]
+    },
+    {
+      "name": "Languages",
+      "skills": ["English", "Vietnamese", "Mandarin"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science, Minor in Mathematics",
+      "university": "University of Houston",
+      "gpa": "Summa Cum Laude",
+      "date": "2019 - 2023"
+    }
+  ],
+  "certificationsAndAwards": [
+    {
+      "title": "Summa Cum Laude",
+      "company": "University of Houston",
+      "date": "2023"
+    },
+    {
+      "title": "Dean's List",
+      "company": "University of Houston",
+      "date": "2019 - 2023"
+    }
+  ]
+}
