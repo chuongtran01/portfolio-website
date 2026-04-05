@@ -17,10 +17,13 @@ const icons = [
   },
 ];
 
+const resumeHref =
+  process.env.NEXT_PUBLIC_RESUME_URL?.trim() || "/ChuongTran_Resume.pdf";
+
 const profile = {
   name: "Chuong Tran",
   title: "Software Engineer",
-  resume: "/ChuongTran_Resume.pdf",
+  resume: resumeHref,
 };
 
 export default function HomePage() {
@@ -31,7 +34,6 @@ export default function HomePage() {
   };
 
   const handleResumeClick = () => {
-    // Resume file is in the public folder, so we reference it directly
     window.open(profile.resume, "_blank", "noopener,noreferrer");
   };
 
