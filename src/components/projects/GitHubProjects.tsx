@@ -2,6 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface Project {
   id: number;
@@ -14,6 +15,28 @@ interface Project {
 
 interface GitHubProjectsProps {
   projects?: Project[];
+  isLoading?: boolean;
+}
+
+function ProjectCardSkeleton() {
+  return (
+    <div className="border border-muted rounded-lg p-6 space-y-4">
+      <div className="flex items-start justify-between gap-4">
+        <Skeleton className="h-7 flex-1 max-w-[220px]" />
+        <Skeleton className="h-5 w-5 shrink-0 rounded" />
+      </div>
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-11/12 max-w-md" />
+      <div className="flex flex-wrap gap-2 pt-1">
+        <Skeleton className="h-6 w-16 rounded-full" />
+        <Skeleton className="h-6 w-24 rounded-full" />
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Skeleton className="h-6 w-20 rounded-full" />
+        <Skeleton className="h-6 w-[4.5rem] rounded-full" />
+      </div>
+    </div>
+  );
 }
 
 // Sample projects data - you can replace this with your actual projects
@@ -44,53 +67,65 @@ const sampleProjects: Project[] = [
   },
 ];
 
-export default function GitHubProjects({ projects = sampleProjects }: GitHubProjectsProps) {
+export default function GitHubProjects({ projects = sampleProjects, isLoading }: GitHubProjectsProps) {
   return (
     <div className="space-y-8">
       <div className="mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Featured Projects</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <div key={project.id} className="border border-muted rounded-lg p-6 hover:bg-muted/50 transition-colors">
-            <div className="flex items-start justify-between mb-4">
-              <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
-              <div className="flex gap-2">
-                {project.html_url && (
-                  <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                    <ExternalLink size={20} />
-                  </a>
+      {isLoading ? (
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          aria-busy="true"
+          aria-label="Loading projects"
+        >
+          {Array.from({ length: 6 }, (_, i) => (
+            <ProjectCardSkeleton key={i} />
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <div key={project.id} className="border border-muted rounded-lg p-6 hover:bg-muted/50 transition-colors">
+              <div className="flex items-start justify-between mb-4">
+                <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
+                <div className="flex gap-2">
+                  {project.html_url && (
+                    <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {project.description && <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>}
+
+              <div className="flex items-center justify-between">
+                {project.techStack && project.techStack.length > 0 && (
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    {project.techStack.map((tech) => (
+                      <Badge key={tech} variant="outline">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 )}
               </div>
-            </div>
 
-            {project.description && <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>}
-
-            <div className="flex items-center justify-between">
-              {project.techStack && project.techStack.length > 0 && (
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  {project.techStack.map((tech) => (
-                    <Badge key={tech} variant="outline">
-                      {tech}
+              {project.topics && project.topics.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.topics.map((topic) => (
+                    <Badge key={topic} variant="secondary">
+                      {topic}
                     </Badge>
                   ))}
                 </div>
               )}
             </div>
-
-            {project.topics && project.topics.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.topics.map((topic) => (
-                  <Badge key={topic} variant="secondary">
-                    {topic}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
