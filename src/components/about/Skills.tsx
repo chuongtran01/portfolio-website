@@ -12,7 +12,7 @@ interface SkillsProps {
 export default function Skills({ skills }: SkillsProps) {
   return (
     <div className="space-y-6">
-      <div className="mb-6">
+      <div className="mb-4">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Skills & Technologies</h2>
       </div>
       <div className="space-y-8">

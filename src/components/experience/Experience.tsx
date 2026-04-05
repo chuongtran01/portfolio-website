@@ -38,7 +38,7 @@ export default function ExperiencePage() {
                 </div>
                 <ul className="space-y-2 text-muted-foreground">
                   {experience.description.map((desc) => (
-                    <li key={desc}>• {desc}</li>
+                    <li key={desc} className="text-sm">• {desc}</li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-2 mt-3">

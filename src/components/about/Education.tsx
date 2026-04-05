@@ -14,7 +14,7 @@ interface EducationProps {
 export default function Education({ education }: EducationProps) {
   return (
     <div className="space-y-6">
-      <div className="mb-6">
+      <div className="mb-4">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Education</h2>
       </div>
       <div className="space-y-4">
