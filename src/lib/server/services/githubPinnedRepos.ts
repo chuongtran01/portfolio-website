@@ -1,3 +1,5 @@
+import { ClientError, GraphQLClient } from "graphql-request";
+
 const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
 
 const PINNED_REPOS_QUERY = `
@@ -20,6 +22,14 @@ const PINNED_REPOS_QUERY = `
   }
 `;
 
+type PinnedReposQueryData = {
+  user?: {
+    pinnedItems?: {
+      nodes?: Array<PinnedRepo | null | Record<string, unknown>> | null;
+    } | null;
+  } | null;
+};
+
 export type PinnedRepo = {
   name: string;
   description: string | null;
@@ -37,24 +47,6 @@ function isValidGitHubLogin(login: string): boolean {
   return /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(login);
 }
 
-type GraphQLError = { message: string };
-
-type GraphQLResponse = {
-  data?: {
-    user?: {
-      pinnedItems?: {
-        nodes?: Array<
-          | PinnedRepo
-          | null
-          | Record<string, unknown>
-        >;
-      } | null;
-    } | null;
-  };
-  errors?: GraphQLError[];
-  message?: string;
-};
-
 function isPinnedRepo(node: unknown): node is PinnedRepo {
   if (node === null || typeof node !== "object") return false;
   const n = node as Record<string, unknown>;
@@ -68,6 +60,15 @@ function isPinnedRepo(node: unknown): node is PinnedRepo {
         n.primaryLanguage !== null &&
         typeof (n.primaryLanguage as { name?: unknown }).name === "string"))
   );
+}
+
+function mapClientError(err: ClientError): GitHubPinnedReposResult {
+  const { status, errors } = err.response;
+  const gqlMsg = errors?.map((e) => e.message).join("; ");
+  const message = gqlMsg || err.message || "GitHub request failed";
+  const hasGqlErrors = (errors?.length ?? 0) > 0;
+  const outStatus = hasGqlErrors && status >= 200 && status < 300 ? 502 : status;
+  return { ok: false, status: outStatus, message };
 }
 
 export async function getGitHubPinnedRepos(): Promise<GitHubPinnedReposResult> {
@@ -98,51 +99,25 @@ export async function getGitHubPinnedRepos(): Promise<GitHubPinnedReposResult> {
     };
   }
 
-  let res: Response;
+  const client = new GraphQLClient(GITHUB_GRAPHQL_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
   try {
-    res = await fetch(GITHUB_GRAPHQL_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: PINNED_REPOS_QUERY,
-        variables: { login },
-      }),
-    });
-  } catch {
+    const data = await client.request<PinnedReposQueryData>(PINNED_REPOS_QUERY, { login });
+    const nodes = data.user?.pinnedItems?.nodes ?? [];
+    const projects = nodes.filter(isPinnedRepo);
+    return { ok: true, projects };
+  } catch (err: unknown) {
+    if (err instanceof ClientError) {
+      return mapClientError(err);
+    }
     return {
       ok: false,
       status: 502,
       message: "Failed to reach GitHub",
     };
   }
-
-  let body: GraphQLResponse;
-  try {
-    body = (await res.json()) as GraphQLResponse;
-  } catch {
-    return {
-      ok: false,
-      status: 502,
-      message: "Invalid response from GitHub",
-    };
-  }
-
-  if (!res.ok) {
-    const msg =
-      typeof body.message === "string" ? body.message : res.statusText || "GitHub request failed";
-    return { ok: false, status: res.status, message: msg };
-  }
-
-  if (body.errors?.length) {
-    const msg = body.errors.map((e) => e.message).join("; ");
-    return { ok: false, status: 502, message: msg };
-  }
-
-  const nodes = body.data?.user?.pinnedItems?.nodes ?? [];
-  const projects = nodes.filter(isPinnedRepo);
-
-  return { ok: true, projects };
 }
