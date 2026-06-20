@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/layout/Navigation";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -37,7 +36,6 @@ export default function RootLayout({
         {/* Analytics */}
         <Analytics />
 
-        <Navigation />
         <Providers>{children}</Providers>
       </body>
     </html>
