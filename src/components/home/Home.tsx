@@ -11,10 +11,10 @@ export default function HomePage() {
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-20">
         <HeroSection />
         <HomeNavigation />
-        <StackSection />
-        <EducationSection />
         <ExperienceSection />
         <ProjectsSection />
+        <StackSection />
+        <EducationSection />
       </div>
     </main>
   );

@@ -1,8 +1,8 @@
 const navItems = [
-  { label: "Stack", href: "#stack" },
-  { label: "Education", href: "#education" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Stack", href: "#stack" },
+  { label: "Education", href: "#education" },
 ];
 
 export default function HomeNavigation() {
