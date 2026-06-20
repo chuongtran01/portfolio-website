@@ -1,8 +1,9 @@
 import { about } from "@/lib/data";
+import MotionSection from "@/components/home/MotionSection";
 
 export default function StackSection() {
   return (
-    <section id="stack" className="scroll-mt-10 pt-10">
+    <MotionSection id="stack" className="scroll-mt-10 pt-10">
       <div className="space-y-8">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
           Tech Stack
@@ -31,6 +32,6 @@ export default function StackSection() {
           ))}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

@@ -1,9 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { workExperience } from "@/lib/data";
+import MotionSection from "@/components/home/MotionSection";
 
 export default function ExperienceSection() {
   return (
-    <section
+    <MotionSection
       id="experience"
       className="scroll-mt-10 space-y-12 pt-10"
     >
@@ -63,6 +64,6 @@ export default function ExperienceSection() {
           </article>
         ))}
       </div>
-    </section>
+    </MotionSection>
   );
 }

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 import { fetchProjects, type UiProject } from "@/services/projects";
 import { useQuery } from "@tanstack/react-query";
+import MotionSection from "@/components/home/MotionSection";
 
 function ProjectList({ projects }: { projects: UiProject[] }) {
   return (
@@ -64,7 +65,7 @@ export default function ProjectsSection() {
   });
 
   return (
-    <section
+    <MotionSection
       id="projects"
       className="scroll-mt-10 space-y-12 pt-10"
     >
@@ -81,6 +82,6 @@ export default function ProjectsSection() {
         </p>
       )}
       {!isPending && !isError && <ProjectList projects={projects} />}
-    </section>
+    </MotionSection>
   );
 }
