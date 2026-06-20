@@ -20,7 +20,7 @@ interface GitHubProjectsProps {
 
 function ProjectCardSkeleton() {
   return (
-    <div className="border border-muted rounded-lg p-6 space-y-4">
+    <div className="space-y-4 border-b border-border pb-10">
       <div className="flex items-start justify-between gap-4">
         <Skeleton className="h-7 flex-1 max-w-[220px]" />
         <Skeleton className="h-5 w-5 shrink-0 rounded" />
@@ -69,60 +69,75 @@ const sampleProjects: Project[] = [
 
 export default function GitHubProjects({ projects = sampleProjects, isLoading }: GitHubProjectsProps) {
   return (
-    <div className="space-y-8">
-      <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Featured Projects</h2>
+    <div className="space-y-14">
+      <div className="space-y-4">
+        <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
+          Build Log
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          Featured Projects
+        </h1>
+        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+          Selected tools and applications that show how I approach product
+          problems, automation, and full-stack development.
+        </p>
       </div>
 
       {isLoading ? (
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="flex flex-col gap-10 border-t border-border pt-8"
           aria-busy="true"
           aria-label="Loading projects"
         >
-          {Array.from({ length: 6 }, (_, i) => (
+          {Array.from({ length: 3 }, (_, i) => (
             <ProjectCardSkeleton key={i} />
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-12 border-t border-border pt-8">
           {projects.map((project) => (
-            <div key={project.id} className="border border-muted rounded-lg p-6 hover:bg-muted/50 transition-colors">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
-                <div className="flex gap-2">
-                  {project.html_url && (
-                    <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {project.description && <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>}
-
-              <div className="flex items-center justify-between">
-                {project.techStack && project.techStack.length > 0 && (
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="outline">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
+            <article key={project.id} className="group space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <h2 className="text-xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                  {project.name}
+                </h2>
+                {project.html_url && (
+                  <a
+                    href={project.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 text-muted-foreground transition-colors hover:text-primary"
+                    aria-label={`Open ${project.name}`}
+                  >
+                    <ExternalLink className="size-5" />
+                  </a>
                 )}
               </div>
 
-              {project.topics && project.topics.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.topics.map((topic) => (
-                    <Badge key={topic} variant="secondary">
-                      {topic}
+              {project.description && (
+                <p className="text-base leading-relaxed text-muted-foreground">{project.description}</p>
+              )}
+
+              {project.techStack && project.techStack.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <Badge key={tech} variant="outline" className="border-border bg-card/60 font-mono text-xs text-muted-foreground">
+                      {tech}
                     </Badge>
                   ))}
                 </div>
               )}
-            </div>
+
+              {project.topics && project.topics.length > 0 && (
+                <div className="flex flex-wrap gap-x-3 gap-y-2 pt-1">
+                  {project.topics.map((topic) => (
+                    <span key={topic} className="font-mono text-xs text-primary/80">
+                      #{topic}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </article>
           ))}
         </div>
       )}

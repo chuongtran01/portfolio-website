@@ -12,12 +12,16 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="flex items-start xl:items-center justify-center min-h-screen px-8 py-16 pt-24 xl:pt-16">
-        <div className="max-w-4xl w-full space-y-12">
+      <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-6 py-28 sm:py-36">
+        <div className="w-full space-y-12">
           {isError ? (
-            <p className="text-center text-sm text-destructive" role="alert">
-              {error instanceof Error ? error.message : "Something went wrong"}
-            </p>
+            <div className="space-y-6">
+              <GitHubProjects isLoading={false} />
+              <p className="border-t border-border pt-6 font-mono text-xs text-muted-foreground" role="status">
+                Live GitHub projects are unavailable locally:{" "}
+                {error instanceof Error ? error.message : "Something went wrong"}
+              </p>
+            </div>
           ) : (
             <GitHubProjects isLoading={isPending} projects={data ?? []} />
           )}

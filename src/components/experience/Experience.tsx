@@ -1,54 +1,66 @@
 import { Badge } from "@/components/ui/badge";
 import { workExperience } from "@/lib/data";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-background">
-      <main className="flex items-start xl:items-center justify-center min-h-screen px-8 py-16 pt-24">
-        <div className="max-w-4xl w-full space-y-12">
-          <div className="space-y-8">
-            <div className="mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Work Experience</h2>
-            </div>
+      <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-6 py-28 sm:py-36">
+        <div className="space-y-14">
+          <div className="space-y-4">
+            <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
+              Career
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+              Work Experience
+            </h1>
+            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Roles where I built, maintained, and improved production web
+              applications with a practical full-stack toolkit.
+            </p>
+          </div>
 
+          <div className="flex flex-col gap-12 border-t border-border pt-8">
             {workExperience.map((experience) => (
-              <div
+              <article
                 key={`${experience.company}-${experience.title}-${experience.date}`}
-                className={`border-l-4 ${experience.current ? "border-primary" : "border-muted"} pl-6 space-y-3`}
+                className="grid gap-4 sm:grid-cols-[8rem_1fr] sm:gap-8"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground">{experience.title}</h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <Briefcase className="w-4 h-4 text-muted-foreground" />
-                      <span className="text-primary font-medium">{experience.company}</span>
+                <div className="pt-1">
+                  <span className="font-mono text-sm text-muted-foreground">{experience.date}</span>
+                </div>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                        {experience.company}
+                        <span className="ml-2 font-normal text-muted-foreground">
+                          — {experience.title}
+                        </span>
+                      </h2>
+                      {experience.current && (
+                        <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                          Current
+                        </span>
+                      )}
                     </div>
-                    <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{experience.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        <span>{experience.location}</span>
-                      </div>
-                    </div>
+                    <p className="font-mono text-sm text-muted-foreground">{experience.location}</p>
+                  </div>
+
+                  <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+                    {experience.description.map((desc) => (
+                      <li key={desc}>{desc}</li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {experience.techStack.map((tech) => (
+                      <Badge key={tech} variant="outline" className="border-border bg-card/60 font-mono text-xs text-muted-foreground">
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
-                <ul className="space-y-2 text-muted-foreground">
-                  {experience.description.map((desc) => (
-                    <li key={desc} className="text-sm">• {desc}</li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {experience.techStack.map((tech) => (
-                    <Badge key={tech} variant="outline">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

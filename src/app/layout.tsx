@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
-import PageTitle from "@/components/layout/PageTitle";
 import { Providers } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -38,22 +37,8 @@ export default function RootLayout({
         {/* Analytics */}
         <Analytics />
 
-        {/* Mobile/Tablet Navigation - Top */}
-        <div className="block xl:hidden">
-          <Navigation />
-        </div>
-
-        {/* Desktop Page Title - Top Left */}
-        <div className="hidden xl:block fixed top-6 left-6 z-50">
-          <PageTitle />
-        </div>
-
+        <Navigation />
         <Providers>{children}</Providers>
-
-        {/* Desktop Navigation - Bottom Right */}
-        <div className="hidden xl:block">
-          <Navigation />
-        </div>
       </body>
     </html>
   );

@@ -4,11 +4,13 @@ interface AboutStatementProps {
 
 export default function AboutStatement({ statement }: AboutStatementProps) {
   return (
-    <div className="space-y-6">
-      <div className="mb-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">About</h2>
+    <section className="border-t border-border pt-8">
+      <div className="grid gap-4 sm:grid-cols-[8rem_1fr]">
+        <h2 className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          About
+        </h2>
+        <p className="text-lg leading-relaxed text-muted-foreground">{statement}</p>
       </div>
-      <p className="leading-relaxed text-muted-foreground text-base">{statement}</p>
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,3 @@
-import { GraduationCap, Calendar } from "lucide-react";
-
 interface EducationItem {
   degree: string;
   university: string;
@@ -13,26 +11,24 @@ interface EducationProps {
 
 export default function Education({ education }: EducationProps) {
   return (
-    <div className="space-y-6">
-      <div className="mb-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Education</h2>
-      </div>
-      <div className="space-y-4">
-        {education.map((edu, index) => (
-          <div key={index} className="border-l-2 border-muted pl-6">
-            <div className="flex items-center gap-2 mb-2">
-              <GraduationCap className="w-5 h-5 text-muted-foreground" />
-              <h3 className="text-lg font-medium text-foreground">{edu.degree}</h3>
+    <section className="border-t border-border pt-8">
+      <div className="grid gap-5 sm:grid-cols-[8rem_1fr]">
+        <h2 className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          Education
+        </h2>
+        <div className="space-y-8">
+          {education.map((edu) => (
+            <div key={`${edu.university}-${edu.date}`} className="grid gap-2 sm:grid-cols-[1fr_auto]">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
+                <p className="mt-1 text-muted-foreground">{edu.university}</p>
+                {edu.gpa && <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-primary">{edu.gpa}</p>}
+              </div>
+              <span className="font-mono text-sm text-muted-foreground">{edu.date}</span>
             </div>
-            <p className="text-muted-foreground font-medium">{edu.university}</p>
-            {edu.gpa && <p className="text-sm text-muted-foreground mt-1">{edu.gpa}</p>}
-            <div className="flex items-center gap-2 mt-1">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">{edu.date}</span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

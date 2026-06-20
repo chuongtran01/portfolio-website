@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-
 interface SkillGroup {
   name: string;
   skills: string[];
@@ -11,24 +9,26 @@ interface SkillsProps {
 
 export default function Skills({ skills }: SkillsProps) {
   return (
-    <div className="space-y-6">
-      <div className="mb-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Skills & Technologies</h2>
-      </div>
-      <div className="space-y-8">
-        {skills.map((skillGroup) => (
-          <div key={skillGroup.name} className="space-y-3">
-            <h3 className="text-lg font-medium text-foreground">{skillGroup.name}</h3>
-            <div className="flex flex-wrap gap-2">
-              {skillGroup.skills.map((skill) => (
-                <Badge variant="outline" key={skill} className="text-sm">
-                  {skill}
-                </Badge>
-              ))}
+    <section className="border-t border-border pt-8">
+      <div className="grid gap-6 sm:grid-cols-[8rem_1fr]">
+        <h2 className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          Stack
+        </h2>
+        <div className="divide-y divide-border">
+          {skills.map((skillGroup) => (
+            <div key={skillGroup.name} className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[7rem_1fr]">
+              <h3 className="text-sm font-semibold text-foreground">{skillGroup.name}</h3>
+              <div className="flex flex-wrap gap-x-3 gap-y-2">
+                {skillGroup.skills.map((skill) => (
+                  <span key={skill} className="font-mono text-xs text-muted-foreground">
+                    #{skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

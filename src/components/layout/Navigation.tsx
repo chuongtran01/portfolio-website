@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
@@ -13,48 +13,41 @@ const navigationItems = [
 
 export default function Navigation() {
   const pathname = usePathname();
-  const router = useRouter();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const handleNavigation = (href: string) => {
-    router.push(href);
-  };
-
   return (
-    <>
-      {/* Mobile/Tablet Navigation - Top Horizontal */}
-      <div className="block xl:hidden fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <nav className="flex items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-1">
-            {navigationItems.map((item) => {
-              const isActive = isClient && pathname === item.href;
-              return (
-                <Button key={item.href} variant={isActive ? "default" : "ghost"} size="sm" onClick={() => handleNavigation(item.href)} className="font-semibold text-sm cursor-pointer">
-                  {item.label}
-                </Button>
-              );
-            })}
-          </div>
-        </nav>
-      </div>
-
-      {/* Desktop Navigation - Bottom Right Vertical */}
-      <div className="hidden xl:block fixed bottom-6 right-6 z-50">
-        <nav className="flex flex-col items-end gap-3">
-          {navigationItems.map((item) => {
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
+      <nav className="mx-auto flex w-full max-w-2xl items-center justify-between gap-4 px-6 py-4 sm:py-5">
+        <Link
+          href="/"
+          className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+        >
+          CT
+        </Link>
+        <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1 text-xs font-medium sm:gap-x-3 sm:text-sm">
+          {navigationItems.map((item, index) => {
             const isActive = isClient && pathname === item.href;
+
             return (
-              <Button key={item.href} variant={isActive ? "default" : "ghost"} size="lg" onClick={() => handleNavigation(item.href)} className="font-semibold text-base cursor-pointer">
-                {item.label}
-              </Button>
+              <div key={item.href} className="flex items-center gap-2 sm:gap-3">
+                {index > 0 && <span className="select-none text-muted-foreground/45">/</span>}
+                <Link
+                  href={item.href}
+                  className={`transition-colors ${
+                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </div>
             );
           })}
-        </nav>
-      </div>
-    </>
+        </div>
+      </nav>
+    </header>
   );
 }
