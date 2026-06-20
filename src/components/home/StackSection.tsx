@@ -5,7 +5,7 @@ export default function StackSection() {
     <section id="stack" className="scroll-mt-10 border-t border-border pt-10">
       <div className="space-y-8">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Stack
+          Tech Stack
         </h2>
 
         <div className="divide-y divide-border">
@@ -17,13 +17,13 @@ export default function StackSection() {
               <h3 className="text-sm font-semibold text-foreground">
                 {skillGroup.name}
               </h3>
-              <div className="flex flex-wrap gap-x-3 gap-y-2">
+              <div className="flex flex-wrap gap-x-2 gap-y-2 font-mono text-xs text-muted-foreground">
                 {skillGroup.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="font-mono text-xs text-muted-foreground"
+                    className="after:ml-2 after:text-border after:content-['·'] last:after:hidden"
                   >
-                    #{skill}
+                    {skill}
                   </span>
                 ))}
               </div>
