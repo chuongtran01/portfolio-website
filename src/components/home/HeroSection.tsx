@@ -28,10 +28,8 @@ export default function HeroSection() {
         <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
           {personal.title}
         </p>
-        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          I build practical web applications with Java, TypeScript, React,
-          Spring Boot, and cloud tools. I like turning complex problems into
-          focused, reliable software.
+        <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {about.aboutStatement}
         </p>
       </div>
 
