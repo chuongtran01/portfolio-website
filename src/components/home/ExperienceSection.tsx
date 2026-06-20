@@ -15,7 +15,7 @@ export default function ExperienceSection() {
         {workExperience.map((experience) => (
           <article
             key={`${experience.company}-${experience.title}-${experience.date}`}
-            className="grid gap-4 sm:grid-cols-[8rem_1fr] sm:gap-8"
+            className="grid gap-4 sm:grid-cols-[9rem_1fr] sm:gap-8"
           >
             <div className="pt-1">
               <span className="font-mono text-sm text-muted-foreground">
@@ -42,7 +42,7 @@ export default function ExperienceSection() {
                 </p>
               </div>
 
-              <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <ul className="max-w-2xl space-y-3 text-sm leading-relaxed text-muted-foreground">
                 {experience.description.map((desc) => (
                   <li key={desc}>{desc}</li>
                 ))}

@@ -12,7 +12,7 @@ export default function StackSection() {
           {about.skills.map((skillGroup) => (
             <div
               key={skillGroup.name}
-              className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[7rem_1fr]"
+              className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[8rem_1fr]"
             >
               <h3 className="text-sm font-semibold text-foreground">
                 {skillGroup.name}

@@ -28,7 +28,7 @@ export default function HeroSection() {
         <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
           {personal.title}
         </p>
-        <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {about.aboutStatement}
         </p>
       </div>

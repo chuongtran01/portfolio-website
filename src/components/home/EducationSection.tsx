@@ -12,7 +12,7 @@ export default function EducationSection() {
           {about.education.map((edu) => (
             <div
               key={`${edu.university}-${edu.date}`}
-              className="grid gap-2 sm:grid-cols-[1fr_auto]"
+              className="grid gap-2 sm:grid-cols-[1fr_9rem]"
             >
               <div>
                 <h3 className="text-lg font-semibold text-foreground">
@@ -25,7 +25,7 @@ export default function EducationSection() {
                   </p>
                 )}
               </div>
-              <span className="font-mono text-sm text-muted-foreground">
+              <span className="font-mono text-sm text-muted-foreground sm:text-right">
                 {edu.date}
               </span>
             </div>
