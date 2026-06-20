@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Skills",
+    "skills": [
+      "Java",
+      "C/C++",
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Spring Boot",
+      "React.js",
+      "Angular",
+      "Node.js",
+      "Ember.js",
+      "HTML/CSS",
+      "REST APIs",
+      "MongoDB",
+      "MySQL",
+      "Apache Kafka",
+      "AWS EC2",
+      "Selenium",
+      "Docker",
+      "Git"
+    ]
+  },
+  {
+    "name": "Languages",
+    "skills": ["English", "Vietnamese", "Mandarin"]
+  }
+]

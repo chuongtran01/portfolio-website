@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Mail } from "lucide-react";
 import type { ReactNode } from "react";
-import { about, personal } from "@/lib/data";
+import { contactInfo, personal } from "@/lib/data";
 
 const githubLink = personal.socialLinks.find((link) => link.icon === "github");
 const linkedInLink = personal.socialLinks.find((link) => link.icon === "linkedin");
@@ -33,7 +33,7 @@ const footerLinks: FooterLink[] = [
     : []),
   {
     label: "Email",
-    href: `mailto:${about.contactInfo.email}`,
+    href: `mailto:${contactInfo.email}`,
     icon: <Mail className="size-5" />,
   },
 ];

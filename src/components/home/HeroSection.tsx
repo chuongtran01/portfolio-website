@@ -2,7 +2,12 @@ import type { ReactNode } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, FileText, Mail } from "lucide-react";
-import { about, personal, type SocialIconId } from "@/lib/data";
+import {
+  aboutStatement,
+  contactInfo,
+  personal,
+  type SocialIconId,
+} from "@/lib/data";
 
 const socialIcons: Record<SocialIconId, ReactNode> = {
   github: <FaGithub className="size-4" />,
@@ -29,7 +34,7 @@ export default function HeroSection() {
           {personal.title}
         </p>
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {about.aboutStatement}
+          {aboutStatement}
         </p>
       </div>
 
@@ -50,7 +55,7 @@ export default function HeroSection() {
           variant="outline"
           className="rounded-tr-none rounded-bl-none border-border/80 bg-card/60"
         >
-          <a href={`mailto:${about.contactInfo.email}`}>
+          <a href={`mailto:${contactInfo.email}`}>
             <Mail />
             Email
           </a>

@@ -1,4 +1,4 @@
-import { about } from "@/lib/data";
+import { education } from "@/lib/data";
 import MotionSection from "@/components/home/MotionSection";
 
 export default function EducationSection() {
@@ -10,7 +10,7 @@ export default function EducationSection() {
         </h2>
 
         <div className="space-y-8">
-          {about.education.map((edu) => (
+          {education.map((edu) => (
             <div
               key={`${edu.university}-${edu.date}`}
               className="grid gap-2 sm:grid-cols-[1fr_9rem]"

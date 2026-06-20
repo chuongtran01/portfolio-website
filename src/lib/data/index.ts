@@ -1,45 +1,45 @@
 import aboutData from "./about.json";
+import educationData from "./education.json";
 import experienceData from "./experience.json";
 import personalData from "./personal.json";
+import skillsData from "./skills.json";
 
 export type SocialIconId = "github" | "linkedin";
 
-export type SocialLink = {
+type SocialLink = {
   name: string;
   icon: SocialIconId;
   href: string;
 };
 
-export type PersonalData = {
+type PersonalData = {
   name: string;
   title: string;
   socialLinks: SocialLink[];
 };
 
-export type SkillGroup = {
+type ContactInfo = {
+  email: string;
+};
+
+type SkillGroup = {
   name: string;
   skills: string[];
 };
 
-export type EducationItem = {
+type EducationItem = {
   degree: string;
   university: string;
   date: string;
   gpa?: string;
 };
 
-export type AboutData = {
+type AboutData = {
   aboutStatement: string;
-  contactInfo: {
-    email: string;
-    phone: string;
-    location: string;
-  };
-  skills: SkillGroup[];
-  education: EducationItem[];
+  contactInfo: ContactInfo;
 };
 
-export type WorkExperienceItem = {
+type WorkExperienceItem = {
   title: string;
   company: string;
   date: string;
@@ -49,6 +49,18 @@ export type WorkExperienceItem = {
   current: boolean;
 };
 
+type ExperienceData = {
+  workExperience: WorkExperienceItem[];
+};
+
+const about = aboutData as AboutData;
+const educationDataItems = educationData as EducationItem[];
+const experience = experienceData as ExperienceData;
+const skillGroups = skillsData as SkillGroup[];
+
 export const personal = personalData as PersonalData;
-export const about = aboutData as AboutData;
-export const workExperience = experienceData.workExperience as WorkExperienceItem[];
+export const aboutStatement = about.aboutStatement;
+export const contactInfo = about.contactInfo;
+export const skills = skillGroups;
+export const education = educationDataItems;
+export const workExperience = experience.workExperience;

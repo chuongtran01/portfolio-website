@@ -1,4 +1,4 @@
-import { about } from "@/lib/data";
+import { skills } from "@/lib/data";
 import MotionSection from "@/components/home/MotionSection";
 
 export default function StackSection() {
@@ -10,7 +10,7 @@ export default function StackSection() {
         </h2>
 
         <div className="divide-y divide-border">
-          {about.skills.map((skillGroup) => (
+          {skills.map((skillGroup) => (
             <div
               key={skillGroup.name}
               className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[8rem_1fr]"
