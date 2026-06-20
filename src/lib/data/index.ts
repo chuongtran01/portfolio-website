@@ -28,12 +28,6 @@ export type EducationItem = {
   gpa?: string;
 };
 
-export type CertificationItem = {
-  title: string;
-  company: string;
-  date: string;
-};
-
 export type AboutData = {
   aboutStatement: string;
   contactInfo: {
@@ -43,7 +37,6 @@ export type AboutData = {
   };
   skills: SkillGroup[];
   education: EducationItem[];
-  certificationsAndAwards: CertificationItem[];
 };
 
 export type WorkExperienceItem = {
