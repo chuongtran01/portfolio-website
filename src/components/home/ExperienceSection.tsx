@@ -5,7 +5,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="scroll-mt-10 space-y-12 border-t border-border pt-10"
+      className="scroll-mt-10 space-y-12 pt-10"
     >
       <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
         Experience

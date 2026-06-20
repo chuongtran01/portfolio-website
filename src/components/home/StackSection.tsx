@@ -2,7 +2,7 @@ import { about } from "@/lib/data";
 
 export default function StackSection() {
   return (
-    <section id="stack" className="scroll-mt-10 border-t border-border pt-10">
+    <section id="stack" className="scroll-mt-10 pt-10">
       <div className="space-y-8">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
           Tech Stack
