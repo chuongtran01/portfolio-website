@@ -2,7 +2,6 @@ import ContactInformation from "@/components/about/ContactInformation";
 import Education from "@/components/about/Education";
 import Skills from "@/components/about/Skills";
 import AboutStatement from "@/components/about/AboutStatement";
-import CertificationsAndAwards from "@/components/about/CertificationsAndAwards";
 import { about } from "@/lib/data";
 
 export default function AboutPage() {
@@ -14,7 +13,6 @@ export default function AboutPage() {
           <ContactInformation contactInfo={about.contactInfo} />
           <Skills skills={about.skills} />
           <Education education={about.education} />
-          <CertificationsAndAwards certificationsAndAwards={about.certificationsAndAwards} />
         </div>
       </main>
     </div>
