@@ -6,14 +6,14 @@ export default function StackSection() {
     <MotionSection id="stack" className="scroll-mt-10 pt-10">
       <div className="space-y-8">
         <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Tech Stack
+          Skills
         </h2>
 
         <div className="divide-y divide-border">
           {skills.map((skillGroup) => (
             <div
               key={skillGroup.name}
-              className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[8rem_1fr]"
+              className="grid gap-3 py-6 first:pt-0 last:pb-0 sm:grid-cols-[12rem_1fr]"
             >
               <h3 className="text-sm font-semibold text-foreground">
                 {skillGroup.name}

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Skills",
+    "name": "Programming & Frameworks",
     "skills": [
       "Java",
       "C/C++",
@@ -9,18 +9,31 @@
       "Python",
       "Spring Boot",
       "React.js",
-      "Angular",
+      "Next.js",
       "Node.js",
       "Ember.js",
       "HTML/CSS",
       "REST APIs",
+      "LangGraph",
+      "LangChain"
+    ]
+  },
+  {
+    "name": "Databases & Cloud",
+    "skills": [
       "MongoDB",
       "MySQL",
-      "Apache Kafka",
-      "AWS EC2",
-      "Selenium",
+      "AWS EC2"
+    ]
+  },
+  {
+    "name": "Tools & Infrastructure",
+    "skills": [
+      "Kafka",
+      "GitHub Actions",
       "Docker",
-      "Git"
+      "Git",
+      "Selenium"
     ]
   },
   {
