@@ -1,11 +1,15 @@
 import { Badge } from "@/components/ui/badge";
 import { workExperience } from "@/lib/data";
-import SectionLabel from "@/components/home/SectionLabel";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="scroll-mt-10 space-y-12 border-t border-border pt-10">
-      <SectionLabel>Experience</SectionLabel>
+    <section
+      id="experience"
+      className="scroll-mt-10 space-y-12 border-t border-border pt-10"
+    >
+      <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        Experience
+      </h2>
 
       <div className="flex flex-col gap-12">
         {workExperience.map((experience) => (

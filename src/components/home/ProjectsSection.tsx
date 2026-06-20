@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
-import SectionLabel from "@/components/home/SectionLabel";
 import { fetchProjects, type UiProject } from "@/services/projects";
 import { useQuery } from "@tanstack/react-query";
 
@@ -65,8 +64,13 @@ export default function ProjectsSection() {
   });
 
   return (
-    <section id="projects" className="scroll-mt-10 space-y-12 border-t border-border pt-10">
-      <SectionLabel>Projects</SectionLabel>
+    <section
+      id="projects"
+      className="scroll-mt-10 space-y-12 border-t border-border pt-10"
+    >
+      <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        Projects
+      </h2>
 
       {isPending && (
         <p className="font-mono text-xs text-muted-foreground">Loading projects...</p>
