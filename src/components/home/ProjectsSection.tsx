@@ -65,7 +65,7 @@ export default function ProjectsSection() {
   });
 
   return (
-    <section className="space-y-12 border-t border-border pt-10">
+    <section id="projects" className="scroll-mt-10 space-y-12 border-t border-border pt-10">
       <SectionLabel>Projects</SectionLabel>
 
       {isPending && (

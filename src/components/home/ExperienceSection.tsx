@@ -4,7 +4,7 @@ import SectionLabel from "@/components/home/SectionLabel";
 
 export default function ExperienceSection() {
   return (
-    <section className="space-y-12 border-t border-border pt-10">
+    <section id="experience" className="scroll-mt-10 space-y-12 border-t border-border pt-10">
       <SectionLabel>Experience</SectionLabel>
 
       <div className="flex flex-col gap-12">

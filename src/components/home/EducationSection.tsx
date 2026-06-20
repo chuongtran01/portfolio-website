@@ -3,7 +3,7 @@ import SectionRow from "@/components/home/SectionRow";
 
 export default function EducationSection() {
   return (
-    <SectionRow label="Education">
+    <SectionRow id="education" label="Education">
       <div className="space-y-8">
         {about.education.map((edu) => (
           <div key={`${edu.university}-${edu.date}`} className="grid gap-2 sm:grid-cols-[1fr_auto]">

@@ -3,7 +3,7 @@ import SectionRow from "@/components/home/SectionRow";
 
 export default function StackSection() {
   return (
-    <SectionRow label="Stack">
+    <SectionRow id="stack" label="Stack">
       <div className="divide-y divide-border">
         {about.skills.map((skillGroup) => (
           <div
