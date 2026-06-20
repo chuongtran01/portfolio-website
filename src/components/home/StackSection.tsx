@@ -17,7 +17,7 @@ export default function StackSection() {
               <h3 className="text-sm font-semibold text-foreground">
                 {skillGroup.name}
               </h3>
-              <div className="flex flex-wrap gap-x-2 gap-y-2 font-mono text-xs text-muted-foreground">
+              <div className="flex flex-wrap gap-x-2 gap-y-2 text-sm leading-relaxed text-muted-foreground">
                 {skillGroup.skills.map((skill) => (
                   <span
                     key={skill}

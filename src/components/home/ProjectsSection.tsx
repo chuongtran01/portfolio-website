@@ -25,7 +25,7 @@ function ProjectList({ projects }: { projects: UiProject[] }) {
             </a>
           </div>
           {project.description && (
-            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
+            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
               {project.description}
             </p>
           )}
