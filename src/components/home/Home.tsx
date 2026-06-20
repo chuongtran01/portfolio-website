@@ -1,5 +1,6 @@
 import EducationSection from "@/components/home/EducationSection";
 import ExperienceSection from "@/components/home/ExperienceSection";
+import Footer from "@/components/home/Footer";
 import HeroSection from "@/components/home/HeroSection";
 import HomeNavigation from "@/components/home/HomeNavigation";
 import ProjectsSection from "@/components/home/ProjectsSection";
@@ -15,6 +16,7 @@ export default function HomePage() {
         <ProjectsSection />
         <StackSection />
         <EducationSection />
+        <Footer />
       </div>
     </main>
   );
