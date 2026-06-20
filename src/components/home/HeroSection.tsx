@@ -22,12 +22,12 @@ export default function HeroSection() {
   return (
     <section className="flex flex-col items-start gap-8">
       <div className="space-y-4">
-        <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
-          {personal.title}
-        </p>
         <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl">
           {personal.name}
         </h1>
+        <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
+          {personal.title}
+        </p>
         <p className="max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
           I build practical web applications with Java, TypeScript, React,
           Spring Boot, and cloud tools. I like turning complex problems into
