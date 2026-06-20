@@ -4,14 +4,8 @@ import SectionLabel from "@/components/home/SectionLabel";
 
 export default function ExperienceSection() {
   return (
-    <section className="border-t border-border pt-8">
-      <div className="mb-12 grid gap-4 sm:grid-cols-[8rem_1fr]">
-        <SectionLabel>Experience</SectionLabel>
-        <p className="text-lg leading-relaxed text-muted-foreground">
-          Roles where I built, maintained, and improved production web
-          applications with a practical full-stack toolkit.
-        </p>
-      </div>
+    <section className="space-y-12 border-t border-border pt-10">
+      <SectionLabel>Experience</SectionLabel>
 
       <div className="flex flex-col gap-12">
         {workExperience.map((experience) => (

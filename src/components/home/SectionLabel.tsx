@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export default function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <h2 className="font-mono text-sm font-medium uppercase tracking-[0.22em] text-muted-foreground">
+    <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
       {children}
     </h2>
   );

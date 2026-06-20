@@ -65,14 +65,8 @@ export default function ProjectsSection() {
   });
 
   return (
-    <section className="border-t border-border pt-8">
-      <div className="mb-12 grid gap-4 sm:grid-cols-[8rem_1fr]">
-        <SectionLabel>Projects</SectionLabel>
-        <p className="text-lg leading-relaxed text-muted-foreground">
-          Selected tools and applications that show how I approach product
-          problems, automation, and full-stack development.
-        </p>
-      </div>
+    <section className="space-y-12 border-t border-border pt-10">
+      <SectionLabel>Projects</SectionLabel>
 
       {isPending && (
         <p className="font-mono text-xs text-muted-foreground">Loading projects...</p>
