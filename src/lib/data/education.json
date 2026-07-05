@@ -1,6 +1,11 @@
 [
   {
-    "degree": "Bachelor of Science in Computer Science, Minor in Mathematics",
+    "degree": "MS in Computer Science",
+    "university": "University of Texas at Austin",
+    "date": "2026 - Present"
+  },
+  {
+    "degree": "BS in Computer Science, Minor in Mathematics",
     "university": "University of Houston",
     "gpa": "Summa Cum Laude",
     "date": "2019 - 2023"
