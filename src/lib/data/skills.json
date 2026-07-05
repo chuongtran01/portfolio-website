@@ -7,37 +7,28 @@
       "JavaScript",
       "TypeScript",
       "Python",
+      "SQL",
       "Spring Boot",
       "React.js",
       "Next.js",
       "Node.js",
       "Ember.js",
-      "HTML/CSS",
       "REST APIs",
       "LangGraph",
       "LangChain"
     ]
   },
   {
-    "name": "Databases & Cloud",
-    "skills": [
-      "MongoDB",
-      "MySQL",
-      "AWS EC2"
-    ]
-  },
-  {
     "name": "Tools & Infrastructure",
     "skills": [
+      "MySQL",
+      "PostgreSQL",
+      "AWS EC2",
       "Kafka",
       "GitHub Actions",
       "Docker",
       "Git",
       "Selenium"
     ]
-  },
-  {
-    "name": "Languages",
-    "skills": ["English", "Vietnamese", "Mandarin"]
   }
 ]
