@@ -17,9 +17,9 @@ export default function EducationSection() {
             >
               <div>
                 <h3 className="text-lg font-semibold text-foreground">
-                  {edu.degree}
+                  {edu.university}
                 </h3>
-                <p className="mt-1 text-muted-foreground">{edu.university}</p>
+                <p className="mt-1 text-muted-foreground">{edu.degree}</p>
                 {edu.gpa && (
                   <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-primary">
                     {edu.gpa}
