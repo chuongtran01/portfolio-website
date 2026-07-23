@@ -1,13 +1,18 @@
 [
   {
-    "name": "Programming & Frameworks",
+    "name": "Languages",
     "skills": [
       "Java",
       "C/C++",
       "JavaScript",
       "TypeScript",
       "Python",
-      "SQL",
+      "SQL"
+    ]
+  },
+  {
+    "name": "Frameworks & Libraries",
+    "skills": [
       "Spring Boot",
       "React.js",
       "Next.js",
@@ -19,16 +24,19 @@
     ]
   },
   {
-    "name": "Tools & Infrastructure",
+    "name": "Cloud & Tools",
     "skills": [
       "MySQL",
       "PostgreSQL",
+      "GCP",
       "AWS EC2",
+      "Google Cloud Pub/Sub",
       "Kafka",
+      "Argo CD",
+      "Concourse",
       "GitHub Actions",
       "Docker",
-      "Git",
-      "Selenium"
+      "Git"
     ]
   }
 ]
