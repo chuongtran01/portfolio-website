@@ -38,28 +38,34 @@ export default function ExperienceSection() {
                     </span>
                   )}
                 </div>
-                <p className="font-mono text-sm text-muted-foreground">
-                  {experience.location}
-                </p>
+                {experience.location && (
+                  <p className="font-mono text-sm text-muted-foreground">
+                    {experience.location}
+                  </p>
+                )}
               </div>
 
-              <ul className="max-w-2xl space-y-3 text-sm leading-relaxed text-muted-foreground">
-                {experience.description.map((desc) => (
-                  <li key={desc}>{desc}</li>
-                ))}
-              </ul>
+              {experience.description.length > 0 && (
+                <ul className="max-w-2xl space-y-3 text-sm leading-relaxed text-muted-foreground">
+                  {experience.description.map((desc) => (
+                    <li key={desc}>{desc}</li>
+                  ))}
+                </ul>
+              )}
 
-              <div className="flex flex-wrap gap-2 pt-1">
-                {experience.techStack.map((tech) => (
-                  <Badge
-                    key={tech}
-                    variant="outline"
-                    className="border-border bg-card/60 font-mono text-xs text-muted-foreground"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
+              {experience.techStack.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {experience.techStack.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="outline"
+                      className="border-border bg-card/60 font-mono text-xs text-muted-foreground"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              )}
             </div>
           </article>
         ))}

@@ -1,9 +1,18 @@
 {
   "workExperience": [
     {
+      "title": "Software Engineer",
+      "company": "Cardinal Health",
+      "date": "September 2026 - Present",
+      "location": "Houston, TX - Remote",
+      "description": [],
+      "techStack": [],
+      "current": true
+    },
+    {
       "title": "Software Developer",
       "company": "Infodat",
-      "date": "January 2024 - Present",
+      "date": "January 2024 - September 2026",
       "location": "Houston, TX",
       "description": [
         "Delivered full-stack features for a specialty pharmaceutical consignment inventory management platform used by hospital pharmacies nationwide, supporting 5,000+ users.",
@@ -13,7 +22,7 @@
         "Built an Apache POI-based Excel export service with configurable templates, powering 10+ report types and cutting new-report development time from days to hours."
       ],
       "techStack": ["TypeScript", "Ember.js", "Java", "Spring Boot", "Google Cloud Pub/Sub", "Apache POI"],
-      "current": true
+      "current": false
     },
     {
       "title": "Software Developer Intern",
