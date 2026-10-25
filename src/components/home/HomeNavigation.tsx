@@ -73,7 +73,14 @@ export default function HomeNavigation() {
         aria-label="Home sections"
         className="mx-auto flex w-full max-w-3xl items-center justify-between gap-6 px-6 py-3 text-[15px] font-medium"
       >
-        <a href="#top" className="font-bold tracking-tight text-foreground">
+        <a
+          href="#top"
+          onClick={() => {
+            clickedId.current = null;
+            setActiveId(null);
+          }}
+          className="font-bold tracking-tight text-foreground"
+        >
           {personal.name}
         </a>
         <div className="flex items-center gap-1">
