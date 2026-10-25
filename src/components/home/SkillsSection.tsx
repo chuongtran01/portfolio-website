@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import { skills } from "@/lib/data";
 import MotionSection from "@/components/home/MotionSection";
 
-export default function StackSection() {
+export default function SkillsSection() {
   return (
     <MotionSection id="skills" className="scroll-mt-20">
       <div className="space-y-10">
