@@ -1,6 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import ThemeToggle from "@/components/home/ThemeToggle";
 import { personal } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -65,25 +76,66 @@ export default function HomeNavigation() {
         <a href="#top" className="font-bold tracking-tight text-foreground">
           {personal.name}
         </a>
-        <ul className="flex flex-wrap items-center gap-x-5 gap-y-1">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                onClick={() => handleClick(item.id)}
-                aria-current={activeId === item.id ? "true" : undefined}
-                className={cn(
-                  "pb-1 transition-colors hover:text-foreground",
-                  activeId === item.id
-                    ? "text-foreground shadow-[inset_0_-2px_0_currentColor]"
-                    : "text-foreground/65"
-                )}
+        <div className="flex items-center gap-1">
+          <ul className="hidden items-center gap-x-5 sm:flex">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={() => handleClick(item.id)}
+                  aria-current={activeId === item.id ? "true" : undefined}
+                  className={cn(
+                    "pb-1 transition-colors hover:text-foreground",
+                    activeId === item.id
+                      ? "text-foreground shadow-[inset_0_-2px_0_currentColor]"
+                      : "text-foreground/65",
+                  )}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="sm:hidden"
+                aria-label="Open menu"
               >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+                <Menu className="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-64">
+              <SheetHeader>
+                <SheetTitle>{personal.name}</SheetTitle>
+              </SheetHeader>
+              <ul className="flex flex-col gap-1 px-4 text-lg font-medium">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <SheetClose asChild>
+                      <a
+                        href={`#${item.id}`}
+                        onClick={() => handleClick(item.id)}
+                        aria-current={activeId === item.id ? "true" : undefined}
+                        className={cn(
+                          "block py-2",
+                          activeId === item.id
+                            ? "text-foreground"
+                            : "text-foreground/65",
+                        )}
+                      >
+                        {item.label}
+                      </a>
+                    </SheetClose>
+                  </li>
+                ))}
+              </ul>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   );
