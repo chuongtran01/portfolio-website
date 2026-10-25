@@ -2,6 +2,9 @@ import { ClientError, GraphQLClient } from "graphql-request";
 
 const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
 
+/** Pinned repos rarely change, so GitHub is queried at most once an hour. */
+const REVALIDATE_SECONDS = 60 * 60;
+
 const PINNED_REPOS_QUERY = `
   query PinnedRepos($login: String!) {
     user(login: $login) {
@@ -103,6 +106,8 @@ export async function getGitHubPinnedRepos(): Promise<GitHubPinnedReposResult> {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    fetch: (input, init) =>
+      fetch(input, { ...init, next: { revalidate: REVALIDATE_SECONDS } }),
   });
 
   try {
