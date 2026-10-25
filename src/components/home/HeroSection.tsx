@@ -6,7 +6,7 @@ const resumeHref =
   process.env.NEXT_PUBLIC_RESUME_URL?.trim() || "/ChuongTran_Resume.pdf";
 
 const linkClass =
-  "text-[15px] font-medium text-foreground underline decoration-foreground/30 underline-offset-[5px] transition-colors hover:decoration-foreground";
+  "h-auto p-0 text-[15px] font-medium text-foreground decoration-foreground/30 underline underline-offset-[5px] hover:decoration-foreground";
 
 export default function HeroSection() {
   return (
@@ -31,19 +31,20 @@ export default function HeroSection() {
             <ExternalLink />
           </a>
         </Button>
-        <a href={`mailto:${contactInfo.email}`} className={linkClass}>
-          Email
-        </a>
+        <Button asChild variant="link" className={linkClass}>
+          <a href={`mailto:${contactInfo.email}`}>Email</a>
+        </Button>
         {personal.socialLinks.map((link) => (
-          <a
+          <Button
             key={link.name}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            asChild
+            variant="link"
             className={linkClass}
           >
-            {link.name}
-          </a>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
+          </Button>
         ))}
       </div>
     </section>

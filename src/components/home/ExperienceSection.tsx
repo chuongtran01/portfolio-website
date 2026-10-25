@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { workExperience } from "@/lib/data";
 import { formatDateRange } from "@/lib/utils";
 import MotionSection from "@/components/home/MotionSection";
@@ -23,13 +24,16 @@ export default function ExperienceSection() {
                 <h3 className="flex flex-wrap items-center gap-x-3 text-xl font-bold leading-tight tracking-tight text-foreground">
                   {experience.company}
                   {experience.current && (
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+                    <Badge
+                      variant="secondary"
+                      className="gap-1.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
+                    >
                       <span
                         aria-hidden="true"
-                        className="size-2 rounded-full bg-emerald-600 dark:bg-emerald-400"
+                        className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400"
                       />
                       Present
-                    </span>
+                    </Badge>
                   )}
                 </h3>
                 <p className="font-medium text-foreground/70">
