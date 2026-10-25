@@ -17,9 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Home - Chuong Tran",
   description: "Chuong Tran's personal website",
-  icons: {
-    icon: "/ct_favicon.svg",
-  },
 };
 
 export default function RootLayout({
