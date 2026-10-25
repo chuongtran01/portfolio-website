@@ -1,77 +1,49 @@
-import type { ReactNode } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { ExternalLink, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, FileText, Mail } from "lucide-react";
-import {
-  aboutStatement,
-  contactInfo,
-  personal,
-  type SocialIconId,
-} from "@/lib/data";
-
-const socialIcons: Record<SocialIconId, ReactNode> = {
-  github: <FaGithub className="size-4" />,
-  linkedin: <FaLinkedin className="size-4" />,
-};
+import { aboutStatement, contactInfo, personal } from "@/lib/data";
 
 const resumeHref =
   process.env.NEXT_PUBLIC_RESUME_URL?.trim() || "/ChuongTran_Resume.pdf";
 
-const socialLinks = personal.socialLinks.map((link) => ({
-  name: link.name,
-  href: link.href,
-  icon: socialIcons[link.icon],
-}));
+const linkClass =
+  "text-[15px] font-medium text-foreground underline decoration-foreground/30 underline-offset-[5px] transition-colors hover:decoration-foreground";
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-col items-start gap-8">
+    <section id="top" className="flex scroll-mt-20 flex-col items-start gap-8">
       <div className="space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl">
+        <h1 className="text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-foreground sm:text-7xl">
           {personal.name}
         </h1>
-        <p className="font-mono text-sm font-medium uppercase tracking-[0.28em] text-primary">
+        <p className="text-lg font-medium text-foreground/70 sm:text-xl">
           {personal.title}
         </p>
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="max-w-xl text-lg leading-relaxed text-foreground sm:text-xl">
           {aboutStatement}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <Button
-          asChild
-          variant="outline"
-          className="rounded-tr-none rounded-bl-none border-border/80 bg-card/60"
-        >
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+        <Button asChild size="lg" className="rounded-none">
           <a href={resumeHref} target="_blank" rel="noopener noreferrer">
             <FileText />
             Resume
             <ExternalLink />
           </a>
         </Button>
-        <Button
-          asChild
-          variant="outline"
-          className="rounded-tr-none rounded-bl-none border-border/80 bg-card/60"
-        >
-          <a href={`mailto:${contactInfo.email}`}>
-            <Mail />
-            Email
-          </a>
-        </Button>
-        {socialLinks.map((link) => (
-          <Button
+        <a href={`mailto:${contactInfo.email}`} className={linkClass}>
+          Email
+        </a>
+        {personal.socialLinks.map((link) => (
+          <a
             key={link.name}
-            asChild
-            variant="outline"
-            className="rounded-tr-none rounded-bl-none border-border/80 bg-card/60"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
           >
-            <a href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.icon}
-              {link.name}
-            </a>
-          </Button>
+            {link.name}
+          </a>
         ))}
       </div>
     </section>

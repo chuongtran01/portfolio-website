@@ -1,14 +1,11 @@
-import { Badge } from "@/components/ui/badge";
 import { workExperience } from "@/lib/data";
+import { formatDateRange } from "@/lib/utils";
 import MotionSection from "@/components/home/MotionSection";
 
 export default function ExperienceSection() {
   return (
-    <MotionSection
-      id="experience"
-      className="scroll-mt-10 space-y-12 pt-10"
-    >
-      <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+    <MotionSection id="experience" className="scroll-mt-20 space-y-10">
+      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         Experience
       </h2>
 
@@ -16,37 +13,37 @@ export default function ExperienceSection() {
         {workExperience.map((experience) => (
           <article
             key={`${experience.company}-${experience.title}-${experience.date}`}
-            className="grid gap-4 sm:grid-cols-[9rem_1fr] sm:gap-8"
+            className="grid gap-2 sm:grid-cols-[8rem_1fr] sm:gap-7"
           >
-            <div className="pt-1">
-              <span className="font-mono text-sm text-muted-foreground">
-                {experience.date}
-              </span>
-            </div>
+            <p className="pt-1 text-sm tabular-nums text-foreground/70">
+              {formatDateRange(experience.date)}
+            </p>
             <div className="space-y-4">
-              <div className="space-y-2">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                    {experience.company}
-                    <span className="ml-2 font-normal text-muted-foreground">
-                      — {experience.title}
-                    </span>
-                  </h3>
+              <div className="space-y-1">
+                <h3 className="flex flex-wrap items-center gap-x-3 text-xl font-bold leading-tight tracking-tight text-foreground">
+                  {experience.company}
                   {experience.current && (
-                    <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                      Current
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold">
+                      <span
+                        aria-hidden="true"
+                        className="size-2 rounded-full bg-foreground"
+                      />
+                      Present
                     </span>
                   )}
-                </div>
+                </h3>
+                <p className="font-medium text-foreground/70">
+                  {experience.title}
+                </p>
                 {experience.location && (
-                  <p className="font-mono text-sm text-muted-foreground">
+                  <p className="text-sm text-foreground/70">
                     {experience.location}
                   </p>
                 )}
               </div>
 
               {experience.description.length > 0 && (
-                <ul className="max-w-2xl space-y-3 text-sm leading-relaxed text-muted-foreground">
+                <ul className="max-w-2xl list-disc space-y-2.5 pl-5 text-base leading-relaxed text-foreground/85">
                   {experience.description.map((desc) => (
                     <li key={desc}>{desc}</li>
                   ))}
@@ -54,17 +51,9 @@ export default function ExperienceSection() {
               )}
 
               {experience.techStack.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {experience.techStack.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className="border-border bg-card/60 font-mono text-xs text-muted-foreground"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
+                <p className="text-sm font-medium text-foreground/70">
+                  {experience.techStack.join(" · ")}
+                </p>
               )}
             </div>
           </article>

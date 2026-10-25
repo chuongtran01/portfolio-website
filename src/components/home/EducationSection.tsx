@@ -1,11 +1,12 @@
 import { education } from "@/lib/data";
+import { formatDateRange } from "@/lib/utils";
 import MotionSection from "@/components/home/MotionSection";
 
 export default function EducationSection() {
   return (
-    <MotionSection id="education" className="scroll-mt-10 pt-10">
-      <div className="space-y-8">
-        <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+    <MotionSection id="education" className="scroll-mt-20">
+      <div className="space-y-10">
+        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Education
         </h2>
 
@@ -13,22 +14,25 @@ export default function EducationSection() {
           {education.map((edu) => (
             <div
               key={`${edu.university}-${edu.date}`}
-              className="grid gap-2 sm:grid-cols-[1fr_9rem]"
+              className="grid gap-2 sm:grid-cols-[8rem_1fr] sm:gap-7"
             >
+              <p className="pt-1 text-sm tabular-nums text-foreground/70">
+                {formatDateRange(edu.date)}
+              </p>
               <div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-lg font-bold tracking-tight text-foreground">
                   {edu.university}
                 </h3>
-                <p className="mt-1 text-muted-foreground">{edu.degree}</p>
-                {edu.gpa && (
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-primary">
-                    {edu.gpa}
-                  </p>
-                )}
+                <p className="mt-1 text-foreground/85">
+                  {edu.degree}
+                  {edu.gpa && (
+                    <span className="text-foreground/70">
+                      {" "}
+                      · {edu.gpa.replace(/^GPA:\s*/, "GPA ")}
+                    </span>
+                  )}
+                </p>
               </div>
-              <span className="font-mono text-sm text-muted-foreground sm:text-right">
-                {edu.date}
-              </span>
             </div>
           ))}
         </div>

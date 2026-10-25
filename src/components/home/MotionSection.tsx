@@ -6,7 +6,7 @@ import { motion, type Variants } from "framer-motion";
 const revealVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: -18,
+    y: 16,
   },
   visible: (delay = 0) => ({
     opacity: 1,

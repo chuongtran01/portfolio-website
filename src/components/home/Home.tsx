@@ -8,10 +8,10 @@ import StackSection from "@/components/home/StackSection";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background px-6 py-20 sm:py-28">
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-20">
+    <main className="min-h-screen bg-background">
+      <HomeNavigation />
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-24 px-6 pb-20 pt-16 sm:pb-28 sm:pt-24">
         <HeroSection />
-        <HomeNavigation />
         <ExperienceSection />
         <ProjectsSection />
         <StackSection />
