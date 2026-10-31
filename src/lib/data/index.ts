@@ -105,18 +105,9 @@ export const workExperience: WorkExperienceItem[] = [
     date: "May 2023 - December 2023",
     location: "Houston, TX",
     description: [
-      "Delivered 5 production-ready features, including user account management and data visualization with Recharts, using React and Spring Boot.",
-      "Maintained 80% test coverage across React and Spring Boot codebases using Jest, React Testing Library, JUnit, and Mockito, improving reliability and minimizing bugs.",
+      "Built order and inventory charts, plus data tables with server-side filtering and pagination, using React and Spring Boot, with 80% test coverage (Jest, JUnit, Mockito).",
     ],
-    techStack: [
-      "React",
-      "Spring Boot",
-      "Recharts",
-      "Jest",
-      "React Testing Library",
-      "JUnit",
-      "Mockito",
-    ],
+    techStack: ["React", "Spring Boot", "Jest", "JUnit", "Mockito"],
     current: false,
   },
   {
