@@ -71,7 +71,7 @@ export default function HomeNavigation() {
     <header className="sticky top-0 z-10 bg-background">
       <nav
         aria-label="Home sections"
-        className="mx-auto flex w-full max-w-3xl items-center justify-between gap-6 px-6 py-3 text-[15px] font-medium"
+        className="mx-auto flex w-full max-w-4xl items-center justify-between gap-6 px-6 py-3 text-[15px] font-medium"
       >
         <a
           href="#top"

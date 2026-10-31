@@ -47,7 +47,7 @@ export default function ExperienceSection() {
               </div>
 
               {experience.description.length > 0 && (
-                <ul className="max-w-2xl list-disc space-y-2.5 pl-5 text-base leading-relaxed text-foreground/85">
+                <ul className="max-w-3xl list-disc space-y-2.5 pl-5 text-base leading-relaxed text-foreground/85">
                   {experience.description.map((desc) => (
                     <li key={desc}>{desc}</li>
                   ))}

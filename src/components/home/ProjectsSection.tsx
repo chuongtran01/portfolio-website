@@ -52,7 +52,7 @@ async function ProjectList() {
             </Tooltip>
           </div>
           {project.description && (
-            <p className="max-w-2xl text-base leading-relaxed text-foreground/85">
+            <p className="max-w-3xl text-base leading-relaxed text-foreground/85">
               {project.description}
             </p>
           )}
